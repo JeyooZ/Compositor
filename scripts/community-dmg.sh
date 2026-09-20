@@ -16,11 +16,11 @@ file "build/dmg-stage/$APP/Contents/MacOS/Compositor" | tee dist/architecture.tx
 swift scripts/dmg-background.swift build/dmg-background.png
 mkdir -p build/dmg-stage/.background
 cp build/dmg-background.png build/dmg-stage/.background/background.png
-hdiutil create -volname 'Compositor 中文版' -srcfolder build/dmg-stage -ov -format UDRW build/community-rw.dmg
-mkdir -p build/dmg-mount
-hdiutil attach build/community-rw.dmg -mountpoint "$PWD/build/dmg-mount" -noverify
-trap 'hdiutil detach "$PWD/build/dmg-mount" || true' EXIT
+hdiutil create -volname 'Compositor 中文版' -srcfolder build/dmg-stage -ov -fs HFS+ -format UDRW build/community-rw.dmg
+hdiutil attach build/community-rw.dmg -mountpoint "/Volumes/Compositor 中文版" -noverify
+trap 'hdiutil detach "/Volumes/Compositor 中文版" || true' EXIT
 osascript <<'APPLESCRIPT'
+delay 3
 tell application "Finder"
   tell disk "Compositor 中文版"
     open
@@ -41,7 +41,7 @@ tell application "Finder"
   end tell
 end tell
 APPLESCRIPT
-hdiutil detach "$PWD/build/dmg-mount"
+hdiutil detach "/Volumes/Compositor 中文版"
 trap - EXIT
 hdiutil convert build/community-rw.dmg -format UDZO -o "dist/Compositor-CN-$VERSION-arm64.dmg"
 hdiutil verify "dist/Compositor-CN-$VERSION-arm64.dmg"
