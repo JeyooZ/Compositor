@@ -6,7 +6,11 @@
 
 ## 当前进度
 
-已整合简体中文界面和英文回退，包含 562 条界面资源及 3 条文件类型名称。尚未发布签名、公证的中文安装包。
+已整合简体中文界面和英文回退，包含 573 条界面资源及 5 条应用和文件类型资源。支持 macOS 26.5 及以上的 Apple 芯片 Mac。
+
+[下载社区体验版](https://github.com/JeyooZ/Compositor-CN/releases/tag/v1.0.4-cn.1)。DMG 由 GitHub Actions 构建，使用临时签名，尚未经过 Apple 公证；首次安装可能受到系统拦截。此版本不支持 macOS 15 或 Intel Mac。
+
+![关于与联系方式](docs/screenshots/zh-about.png)
 
 以 Chuangqi Li 的 [PR #29](https://github.com/robbietilton/Compositor/pull/29) 为基础，保留原作者提交署名；参考 Penny777btc 的 [PR #21](https://github.com/robbietilton/Compositor/pull/21) 整理工具提示逻辑，并补充 Finder 文件类型翻译。
 

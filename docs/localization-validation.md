@@ -1,5 +1,22 @@
 # 简体中文验证记录
 
+## 社区体验版 v1.0.4-cn.1
+
+2026-09-20，发布源码 `a4ef1d071ebcc9de976e61bcf7740bc156ac44ec` 的 [GitHub 构建、测试与打包全部通过](https://github.com/JeyooZ/Compositor-CN/actions/runs/35507792906)。
+
+- Debug 和 Release 构建通过；英文、中文各 25 项定向测试通过。
+- 中文 UI 测试验证署名入口、关于窗口维护者及微信号、复制按钮成功状态、关闭窗口和创建画布。
+- 人工检查关于窗口、新建画布截图，文字和操作均可见，无明显截断；应用菜单栏显示“Compositor 中文版”。
+- ARM64 DMG 已下载到本机，SHA-256、hdiutil 完整性验证和 codesign 严格验证通过。核对应用标识、最低系统 26.5、Applications 入口及 MIT 许可证。
+- 本地 Finder 查看安装窗口，标题与维护者背景、应用及 Applications 入口均已设置。本机开启显示隐藏文件，会额外显示磁盘内部目录；macOS 15 上应用图标有不兼容标志，符合最低系统限制。
+- 安装包为临时签名、未 Apple 公证。未在本机 macOS 15 运行，也未宣称完成全部功能测试。原生 macOS 桌面应用不适用网页 360px/390px 和 DOM 检查。
+
+[下载此体验版](https://github.com/JeyooZ/Compositor-CN/releases/tag/v1.0.4-cn.1)
+
+![关于与联系方式](screenshots/zh-about.png)
+
+## 首轮汉化验证
+
 2026-09-20，源码提交 `705ca88` 的 [CI 验证通过](https://github.com/JeyooZ/Compositor-CN/actions/runs/35506437491)。
 
 - Debug 应用构建通过。
