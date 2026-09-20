@@ -30,7 +30,9 @@ jobs:
           xcodebuild -project Compositor.xcodeproj -scheme Compositor -configuration Debug -destination 'platform=macOS' -derivedDataPath build CODE_SIGN_IDENTITY=- CODE_SIGNING_ALLOWED=YES -only-testing:CompositorUITests/ChineseLocalizationUITests -resultBundlePath results-ui.xcresult test 2>&1 | tee test-ui.log
           xcrun xcresulttool export attachments --path results-ui.xcresult --output-path screenshots
       - name: Build community DMG
-        run: bash scripts/community-dmg.sh 2>&1 | tee package.log
+        run: |
+          set -o pipefail
+          bash scripts/community-dmg.sh 2>&1 | tee package.log
       - name: Upload community DMG
         uses: actions/upload-artifact@v4
         with:

@@ -6,7 +6,7 @@ APP='Compositor 中文版.app'
 mkdir -p dist build/dmg-stage
 xcodebuild -project Compositor.xcodeproj -scheme Compositor -configuration Release \
   -destination 'platform=macOS' -derivedDataPath build \
-  CODE_SIGN_IDENTITY=- CODE_SIGNING_ALLOWED=YES ONLY_ACTIVE_ARCH=YES build
+  CODE_SIGN_IDENTITY=- CODE_SIGNING_ALLOWED=YES ARCHS=arm64 ONLY_ACTIVE_ARCH=NO build
 cp -R build/Build/Products/Release/Compositor.app "build/dmg-stage/$APP"
 cp LICENSE build/dmg-stage/LICENSE.txt
 ln -s /Applications build/dmg-stage/Applications
