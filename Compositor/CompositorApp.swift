@@ -20,9 +20,6 @@ struct CompositorApp: App {
             // The project's name is already on its tab, so the toolbar doesn't repeat it as a window title.
             .windowToolbarStyle(.unifiedCompact(showsTitle: false))
             .commands {
-                CommandGroup(replacing: .appInfo) {
-                    Button(L10n.string("About Compositor CN")) { CommunityAbout.show() }
-                }
                 CommandGroup(replacing: .undoRedo) {
                     // Dialog text fields keep native text undo; document history
                     // is unavailable while an import or modal edit is active.
@@ -82,6 +79,9 @@ struct CompositorApp: App {
                 }
                 // Grouped: a commands builder takes at most ten items.
                 Group {
+                    CommandGroup(replacing: .appInfo) {
+                        Button(L10n.string("About Compositor CN")) { CommunityAbout.show() }
+                    }
                     CommandGroup(after: .toolbar) {
                         Button(L10n.string("Fit Canvas")) { session.fit() }.keyboardShortcut("0").disabled(session.document == nil)
                         Button(L10n.string("Actual Pixels")) { session.zoom(to: 1) }.keyboardShortcut("1").disabled(session.document == nil)
