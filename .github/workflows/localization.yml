@@ -1,0 +1,34 @@
+name: Chinese localization
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build-and-test:
+    runs-on: macos-26
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check translation resources
+        run: python3 scripts/check-localization.py
+      - name: Build
+        run: |
+          set -o pipefail
+          xcodebuild -project Compositor.xcodeproj -scheme Compositor -configuration Debug -destination 'platform=macOS' -derivedDataPath build CODE_SIGN_IDENTITY=- CODE_SIGNING_ALLOWED=YES build 2>&1 | tee build.log
+      - name: Test English and Chinese
+        run: |
+          set -o pipefail
+          for language in en zh-Hans; do
+            xcodebuild -project Compositor.xcodeproj -scheme Compositor -configuration Debug -destination 'platform=macOS' -derivedDataPath build CODE_SIGN_IDENTITY=- CODE_SIGNING_ALLOWED=YES -testLanguage "$language" -only-testing:CompositorTests/LocalizationTests -only-testing:CompositorTests/ProjectTests -only-testing:CompositorTests/CanvasSizeTests -only-testing:CompositorTests/ImageSizeTests -only-testing:CompositorTests/CropTests -resultBundlePath "results-$language.xcresult" test 2>&1 | tee "test-$language.log"
+          done
+      - name: Upload diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: localization-diagnostics
+          path: |
+            *.log
+            *.xcresult

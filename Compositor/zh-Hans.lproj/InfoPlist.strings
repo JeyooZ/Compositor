@@ -1,0 +1,4 @@
+/* Finder document type names. */
+"Images" = "图像";
+"Compositor Project" = "Compositor 项目";
+"Compositor Layer" = "Compositor 图层";

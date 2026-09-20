@@ -258,12 +258,57 @@ struct ContentView: View {
                 ProgressView().controlSize(.mini)
                 Text(L10n.string("Importing images…"))
             } else {
-                Text(session.tool == .marquee ? (session.marqueeKind == .ellipse ? L10n.string("Drag an ellipse · Shift add · Option subtract · Shift again mid-drag circle · Drag inside to move · Delete clears · ⌘D deselect") : L10n.string("Drag a rectangle · Shift add · Option subtract · Shift again mid-drag square · Drag inside to move · ⌘-drag moves pixels · Delete clears · ⌘D deselect")) : session.tool == .wand ? L10n.string("Click to select similar colors · Shift add · Option subtract · Drag inside to move · ⌘-drag moves pixels · Delete clears · ⌘D deselect") : session.tool == .lasso ? (session.lassoKind == .freehand ? L10n.string("Drag to select · Drag inside to move · Shift add · Option subtract · Delete clears · ⌥⌫/⌘⌫ fill · ⌘D deselect") : L10n.string("Click corners · Click start, double-click or Enter to close · Delete removes corner · Escape cancel")) : session.tool == .brush ? (session.brushMode == .erase ? L10n.string("Drag to erase") : L10n.string("Drag to paint")) + L10n.string(" · [ ] size · Shift-[ ] hardness · 1–0 opacity · Escape cancel · Space to pan") : session.tool == .blur ? (session.blurMode == .blur ? L10n.string("Drag to soften") : session.blurMode == .smudge ? L10n.string("Drag to smudge") : L10n.string("Drag to push pixels")) + L10n.string(" · [ ] size · Shift-[ ] hardness · 1–0 strength · Space to pan") : session.tool == .cloneStamp ? L10n.string("Option-click to set the source · Drag to clone · [ ] size · Shift-[ ] hardness · 1–0 opacity · Space to pan") : session.tool == .spotHealing ? L10n.string("Drag over blemishes to heal · [ ] size · Shift-[ ] hardness · Escape cancel · Space to pan") : session.tool == .shape ? L10n.format("Drag to draw a shape on a new layer · Shift %1$@ · Option from center · Shift-U %2$@ · Escape cancel · Space to pan", L10n.string(session.shapeKind == .rectangle ? "square" : "circle"), L10n.string(session.shapeKind == .rectangle ? "ellipse" : "rectangle")) : session.tool == .gradient ? L10n.string("Drag to draw · Drag ends to adjust · Shift 45° · 1–0 opacity · Enter apply · Escape cancel") : session.tool == .crop ? L10n.string("Drag to crop · Enter apply · Escape cancel · Space to pan") : session.tool == .move ? L10n.string("Drag to move · Handles to resize · Circle to rotate · 1–0 layer opacity · Space to pan") : session.tool == .hand ? L10n.string("Drag to pan · Pinch to zoom") : session.tool == .idle ? L10n.string("No tool selected · Press a tool's key to pick one · Space to pan") : L10n.string("Click to zoom in · Option-click to zoom out · Drag right or left to zoom smoothly · Space to pan"))
+                Text(toolHelp)
             }
         }
         .font(.system(size: 11).monospacedDigit()).foregroundStyle(.secondary)
         .padding(.horizontal, 18).frame(height: 30)
         .accessibilityElement(children: .contain)
+    }
+
+    private var toolHelp: String {
+        switch session.tool {
+        case .marquee:
+            return L10n.string(session.marqueeKind == .ellipse
+                ? "Drag an ellipse · Shift add · Option subtract · Shift again mid-drag circle · Drag inside to move · Delete clears · ⌘D deselect"
+                : "Drag a rectangle · Shift add · Option subtract · Shift again mid-drag square · Drag inside to move · ⌘-drag moves pixels · Delete clears · ⌘D deselect")
+        case .wand:
+            return L10n.string("Click to select similar colors · Shift add · Option subtract · Drag inside to move · ⌘-drag moves pixels · Delete clears · ⌘D deselect")
+        case .lasso:
+            return L10n.string(session.lassoKind == .freehand
+                ? "Drag to select · Drag inside to move · Shift add · Option subtract · Delete clears · ⌥⌫/⌘⌫ fill · ⌘D deselect"
+                : "Click corners · Click start, double-click or Enter to close · Delete removes corner · Escape cancel")
+        case .brush:
+            return L10n.string(session.brushMode == .erase
+                ? "Drag to erase · [ ] size · Shift-[ ] hardness · 1–0 opacity · Escape cancel · Space to pan"
+                : "Drag to paint · [ ] size · Shift-[ ] hardness · 1–0 opacity · Escape cancel · Space to pan")
+        case .blur:
+            return L10n.string(session.blurMode == .blur
+                ? "Drag to soften · [ ] size · Shift-[ ] hardness · 1–0 strength · Space to pan"
+                : session.blurMode == .smudge
+                    ? "Drag to smudge · [ ] size · Shift-[ ] hardness · 1–0 strength · Space to pan"
+                    : "Drag to push pixels · [ ] size · Shift-[ ] hardness · 1–0 strength · Space to pan")
+        case .cloneStamp:
+            return L10n.string("Option-click to set the source · Drag to clone · [ ] size · Shift-[ ] hardness · 1–0 opacity · Space to pan")
+        case .spotHealing:
+            return L10n.string("Drag over blemishes to heal · [ ] size · Shift-[ ] hardness · Escape cancel · Space to pan")
+        case .shape:
+            return L10n.format("Drag to draw a shape on a new layer · Shift %1$@ · Option from center · Shift-U %2$@ · Escape cancel · Space to pan",
+                               L10n.string(session.shapeKind == .rectangle ? "square" : "circle"),
+                               L10n.string(session.shapeKind == .rectangle ? "ellipse" : "rectangle"))
+        case .gradient:
+            return L10n.string("Drag to draw · Drag ends to adjust · Shift 45° · 1–0 opacity · Enter apply · Escape cancel")
+        case .crop:
+            return L10n.string("Drag to crop · Enter apply · Escape cancel · Space to pan")
+        case .move:
+            return L10n.string("Drag to move · Handles to resize · Circle to rotate · 1–0 layer opacity · Space to pan")
+        case .hand:
+            return L10n.string("Drag to pan · Pinch to zoom")
+        case .idle:
+            return L10n.string("No tool selected · Press a tool's key to pick one · Space to pan")
+        default:
+            return L10n.string("Click to zoom in · Option-click to zoom out · Drag right or left to zoom smoothly · Space to pan")
+        }
     }
 }
 
