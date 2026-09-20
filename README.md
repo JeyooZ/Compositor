@@ -12,6 +12,8 @@
 
 构建与回归验证见 [GitHub Actions](https://github.com/JeyooZ/Compositor/actions/workflows/localization.yml)。
 
+已通过云端编译、中英文各 25 项定向测试及中文新建画布 UI 测试；验证范围与截图见[验证记录](docs/localization-validation.md)。
+
 ## 运行与开发
 
 - 原生 Mac 应用，目前没有 Windows 或网页版本。
