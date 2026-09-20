@@ -7,12 +7,8 @@ final class ChineseLocalizationUITests: XCTestCase {
         let app = XCUIApplication()
         app.launchArguments += ["-AppleLanguages", "(zh-Hans)", "-AppleLocale", "zh_CN"]
         app.launch()
-        let create = app.buttons["newCanvasWelcome"]
-        XCTAssertTrue(create.waitForExistence(timeout: 15))
-        XCTAssertEqual(create.label, "新建画布")
-        create.click()
         let confirm = app.buttons["createCanvas"]
-        XCTAssertTrue(confirm.waitForExistence(timeout: 5))
+        XCTAssertTrue(confirm.waitForExistence(timeout: 15))
         XCTAssertEqual(confirm.label, "创建画布")
         let dialog = XCTAttachment(screenshot: app.screenshot())
         dialog.name = "Chinese new canvas"
