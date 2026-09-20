@@ -133,7 +133,7 @@ final class ProjectController {
             panel.allowedContentTypes = [.compositorProject]
             panel.canCreateDirectories = true
             panel.isExtensionHidden = false
-            panel.nameFieldStringValue = session.projectURL?.lastPathComponent ?? "Untitled.comp"
+            panel.nameFieldStringValue = session.projectURL?.lastPathComponent ?? (L10n.string("Untitled") + ".comp")
             panel.title = asNew ? L10n.string("Save Project As") : L10n.string("Save Project")
             let response: NSApplication.ModalResponse
             if let window { response = await panel.beginSheetModal(for: window) }

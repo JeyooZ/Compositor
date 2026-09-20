@@ -4,9 +4,13 @@
 
 ## 当前进度
 
-仓库已建立，当前代码仍为上游英文版本，尚未发布中文安装包。
+已整合简体中文界面和英文回退，包含 562 条界面资源及 3 条文件类型名称。尚未发布签名、公证的中文安装包。
 
-计划审查并复用社区已有的简体中文本地化工作，统一图像编辑术语，完成中文界面及核心编辑流程验证后发布体验版。已有方案包括上游 [PR #21](https://github.com/robbietilton/Compositor/pull/21) 和 [PR #29](https://github.com/robbietilton/Compositor/pull/29)；是否采用以代码审查和实际验证结果为准。
+以 Chuangqi Li 的 [PR #29](https://github.com/robbietilton/Compositor/pull/29) 为基础，保留原作者提交署名；参考 Penny777btc 的 [PR #21](https://github.com/robbietilton/Compositor/pull/21) 整理工具提示逻辑，并补充 Finder 文件类型翻译。
+
+中文系统下自动使用简体中文；也可在 macOS「系统设置 → 通用 → 语言与地区 → 应用程序」中为 Compositor 选择简体中文或英文，退出并重新打开应用后生效。
+
+构建与回归验证见 [GitHub Actions](https://github.com/JeyooZ/Compositor/actions/workflows/localization.yml)。
 
 ## 运行与开发
 
@@ -16,7 +20,7 @@
 
 ## 体验版发布前
 
-- [ ] 审查并整合简体中文资源，保留英文回退。
+- [x] 审查并整合简体中文资源，保留英文回退。
 - [ ] 校对菜单、工具、对话框和动态文案，检查中文布局。
 - [ ] 验证打开、编辑、保存、导出等核心操作。
 - [ ] 为社区发行版配置独立应用标识及更新渠道，避免被官方更新覆盖。
