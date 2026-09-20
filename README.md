@@ -1,4 +1,6 @@
-# Compositor 社区中文版
+# Compositor-CN
+
+**简体中文社区版 · 站长小庞维护**
 
 基于 [robbietilton/Compositor](https://github.com/robbietilton/Compositor) 的社区中文项目，面向中文用户提供原生 macOS 图像编辑体验。本项目为独立社区 fork，不代表原作者或官方发行版。
 
@@ -10,9 +12,13 @@
 
 中文系统下自动使用简体中文；也可在 macOS「系统设置 → 通用 → 语言与地区 → 应用程序」中为 Compositor 选择简体中文或英文，退出并重新打开应用后生效。
 
-构建与回归验证见 [GitHub Actions](https://github.com/JeyooZ/Compositor/actions/workflows/localization.yml)。
+构建与回归验证见 [GitHub Actions](https://github.com/JeyooZ/Compositor-CN/actions/workflows/localization.yml)。
 
 已通过云端编译、中英文各 25 项定向测试及中文新建画布 UI 测试；验证范围与截图见[验证记录](docs/localization-validation.md)。
+
+## 联系与反馈
+
+联系维护者：**站长小庞 · 微信 dlzzxp**。软件问题请提交 [Issues](https://github.com/JeyooZ/Compositor-CN/issues)。
 
 ## 运行与开发
 

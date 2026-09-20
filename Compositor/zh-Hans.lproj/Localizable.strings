@@ -563,3 +563,14 @@
 "levels.sample.black" = "黑场";
 "levels.sample.gray" = "灰场";
 "levels.sample.white" = "白场";
+"Compositor CN" = "Compositor 中文版";
+"About Compositor CN" = "关于 Compositor 中文版";
+"Chinese localization and maintenance: 站长小庞" = "中文本地化与维护：站长小庞";
+"WeChat: dlzzxp" = "微信：dlzzxp";
+"Copy WeChat ID" = "复制微信号";
+"Copied" = "已复制";
+"Project website" = "项目主页";
+"Report an issue" = "问题反馈";
+"Localization contributors: Chuangqi Li, Penny777btc" = "汉化贡献者：Chuangqi Li、Penny777btc";
+"Community edition · Unofficial" = "社区发行版 · 非官方版本";
+"Community Chinese edition · 站长小庞" = "社区中文版 · 站长小庞";

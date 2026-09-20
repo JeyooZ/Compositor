@@ -1,6 +1,6 @@
 # 简体中文验证记录
 
-2026-09-20，源码提交 `705ca88` 的 [CI 验证通过](https://github.com/JeyooZ/Compositor/actions/runs/35506437491)。
+2026-09-20，源码提交 `705ca88` 的 [CI 验证通过](https://github.com/JeyooZ/Compositor-CN/actions/runs/35506437491)。
 
 - Debug 应用构建通过。
 - 562 条界面资源、3 条文件类型资源通过语法、重复键、中英文键一致性及格式参数检查。

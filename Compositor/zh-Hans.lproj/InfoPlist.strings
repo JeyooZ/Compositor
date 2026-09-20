@@ -2,3 +2,5 @@
 "Images" = "图像";
 "Compositor Project" = "Compositor 项目";
 "Compositor Layer" = "Compositor 图层";
+"CFBundleDisplayName" = "Compositor 中文版";
+"CFBundleName" = "Compositor 中文版";

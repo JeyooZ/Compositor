@@ -40,6 +40,9 @@ struct NewCanvasSheet: View {
                 .keyboardShortcut(.defaultAction).buttonStyle(.borderedProminent)
                 .disabled(!valid).accessibilityIdentifier("createCanvas")
             }
+            Button(L10n.string("Community Chinese edition · 站长小庞")) { CommunityAbout.show() }
+                .buttonStyle(.link).font(.caption)
+                .accessibilityIdentifier("communityAbout")
         }
         .padding(28).frame(maxWidth: 500)
         .disabled(session.isImporting || session.showsBusy)
