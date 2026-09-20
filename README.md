@@ -1,3 +1,37 @@
+# Compositor 社区中文版
+
+基于 [robbietilton/Compositor](https://github.com/robbietilton/Compositor) 的社区中文项目，面向中文用户提供原生 macOS 图像编辑体验。本项目为独立社区 fork，不代表原作者或官方发行版。
+
+## 当前进度
+
+仓库已建立，当前代码仍为上游英文版本，尚未发布中文安装包。
+
+计划审查并复用社区已有的简体中文本地化工作，统一图像编辑术语，完成中文界面及核心编辑流程验证后发布体验版。已有方案包括上游 [PR #21](https://github.com/robbietilton/Compositor/pull/21) 和 [PR #29](https://github.com/robbietilton/Compositor/pull/29)；是否采用以代码审查和实际验证结果为准。
+
+## 运行与开发
+
+- 原生 Mac 应用，目前没有 Windows 或网页版本。
+- 当前工程最低系统版本为 macOS 26.5，构建需要支持该目标的 Xcode 与 macOS SDK。
+- 使用 Xcode 打开 `Compositor.xcodeproj`，选择 `Compositor` scheme 构建。
+
+## 体验版发布前
+
+- [ ] 审查并整合简体中文资源，保留英文回退。
+- [ ] 校对菜单、工具、对话框和动态文案，检查中文布局。
+- [ ] 验证打开、编辑、保存、导出等核心操作。
+- [ ] 为社区发行版配置独立应用标识及更新渠道，避免被官方更新覆盖。
+- [ ] 使用社区维护者自己的签名和公证配置制作安装包。
+
+当前源码仍保留上游的应用标识、更新地址及发布脚本配置，不能直接作为社区正式发行配置使用。
+
+## 许可与致谢
+
+原项目由 Wonder Assembly LLC 开源，采用 [MIT 许可证](LICENSE)。本项目保留原版权及许可声明，并会保留所采用社区贡献的提交历史与署名。
+
+---
+
+以下为上游英文说明。
+
 # Compositor
 
 Adobe Photoshop costs too much and tools like GIMP don’t feel familiar enough for me to stay in flow. That’s why I built Compositor.
