@@ -7,7 +7,8 @@ final class ChineseLocalizationUITests: XCTestCase {
         let app = XCUIApplication()
         app.launchArguments += ["-AppleLanguages", "(zh-Hans)", "-AppleLocale", "zh_CN"]
         app.launch()
-        let about = app.buttons["communityAbout"]
+        let about = app.descendants(matching: .any)["communityAbout"]
+        print(app.debugDescription)
         XCTAssertTrue(about.waitForExistence(timeout: 15))
         XCTAssertEqual(about.label, "社区中文版 · 站长小庞")
         about.click()

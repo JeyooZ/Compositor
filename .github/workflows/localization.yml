@@ -28,7 +28,12 @@ jobs:
         run: |
           set -o pipefail
           xcodebuild -project Compositor.xcodeproj -scheme Compositor -configuration Debug -destination 'platform=macOS' -derivedDataPath build CODE_SIGN_IDENTITY=- CODE_SIGNING_ALLOWED=YES -only-testing:CompositorUITests/ChineseLocalizationUITests -resultBundlePath results-ui.xcresult test 2>&1 | tee test-ui.log
-          xcrun xcresulttool export attachments --path results-ui.xcresult --output-path screenshots
+      - name: Export interface screenshots
+        if: always()
+        run: |
+          if [ -d results-ui.xcresult ]; then
+            xcrun xcresulttool export attachments --path results-ui.xcresult --output-path screenshots
+          fi
       - name: Build community DMG
         run: |
           set -o pipefail
